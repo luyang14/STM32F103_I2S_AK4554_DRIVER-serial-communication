@@ -1,0 +1,72 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (File ".\audiotofibre_b-170217.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector)
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\audiotofibre_b-170217.dsn")
+      (Path "Design Resources" ".\audiotofibre_b-170217.dsn" "ALL")
+      (Path "Design Resources" ".\audiotofibre_b-170217.dsn" "CH1")
+      (Path "Design Resources" ".\audiotofibre_b-170217.dsn" "CH2")
+      (Select "Design Resources" ".\audiotofibre_b-170217.dsn" "CH1" "01-CPU"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 0 200 0 371"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 50 1021 50 463")
+        (Scroll "143 376")
+        (Zoom "196")
+        (Occurrence "/CH1"))
+      (Path
+         "C:\USERS\IOTTS\DESKTOP\新建文件夹\STM32F103_AK4554_SCH\AUDIOTOFIBRE_B-170217.DSN")
+      (Schematic "CH1")
+      (Page "01-CPU"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 125 1096 125 538")
+        (Scroll "0 90")
+        (Zoom "100")
+        (Occurrence "/CH1"))
+      (Path
+         "C:\USERS\IOTTS\DESKTOP\新建文件夹\STM32F103_AK4554_SCH\AUDIOTOFIBRE_B-170217.DSN")
+      (Schematic "CH1")
+      (Page "02-COM"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -30 150 1121 150 563")
+        (Scroll "0 140")
+        (Zoom "100")
+        (Occurrence "/CH1"))
+      (Path
+         "C:\USERS\IOTTS\DESKTOP\新建文件夹\STM32F103_AK4554_SCH\AUDIOTOFIBRE_B-170217.DSN")
+      (Schematic "CH1")
+      (Page "03-AK4554 16Bit Codec"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 175 1146 175 588")
+        (Scroll "0 0")
+        (Zoom "138")
+        (Occurrence "/CH1"))
+      (Path
+         "C:\USERS\IOTTS\DESKTOP\新建文件夹\STM32F103_AK4554_SCH\AUDIOTOFIBRE_B-170217.DSN")
+      (Schematic "CH1")
+      (Page "04-AUDIO ADD")))
+  (MPSSessionName "IOTTS"))
