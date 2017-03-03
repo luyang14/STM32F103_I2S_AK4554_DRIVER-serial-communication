@@ -10,12 +10,17 @@
   
 #include "bsp_usart1.h"
 
+uint8_t USART1_Tx_Buffer[4];
+uint8_t USART1_Rx_Buffer[4];
+uint8_t Flag_USART1_TX_Finish=0;
+uint8_t Flag_USART1_RX_Finish=0;
+
  /**
   * @brief  USART1 GPIO 配置,工作模式配置。115200 8-N-1
   * @param  无
   * @retval 无
   */
-void USART1_Config(void)
+void USART1_Config(u32 Baud_rate)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
@@ -38,7 +43,7 @@ void USART1_Config(void)
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
 	/* USART1 mode config */
-	USART_InitStructure.USART_BaudRate = 115200;
+	USART_InitStructure.USART_BaudRate = Baud_rate;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
 	USART_InitStructure.USART_Parity = USART_Parity_No ;
@@ -54,21 +59,47 @@ void USART1_Config(void)
 	/* Enable the USARTy Interrupt */
 	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;	 
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 }
 void USART1_IRQHandler(void)
 {
-	uint8_t ch;
-
-	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
-	{ 	
-	    //ch = USART1->DR;
-			ch = USART_ReceiveData(USART1);
- 	  	printf( "%c", ch );    //将接受到的数据直接返回打印
-	} 
-	 
+	static u8 Data;
+	static u8 LastData;
+	static u8 i=0;
+	static u8 Save_Start=0;
+//  if(USART_GetITStatus(USART1, USART_IT_TXE) != RESET)  //发送中断
+//	{
+//		for(i=0;i<2;i++)
+//		{
+//		  USART_SendData(USART1,buffer[i] );
+//		  //while (!(USART1->SR & USART_FLAG_TXE));	
+//		}	
+//  } 	
+	
+	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  //接收中断
+	{
+		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
+		Data =USART1->DR;	//读取接收到的数据  
+    if((LastData==0xEC)&&(Data==0x10))
+		{
+			i=0;
+			Save_Start=1;
+		}
+		if(Save_Start==1)
+		{
+			USART1_Rx_Buffer[i]=0;
+      USART1_Rx_Buffer[i++]=Data;
+      if(i==3)
+				{
+					Flag_USART1_RX_Finish=1;
+					Save_Start=0;
+					
+				}					
+		}			
+		LastData=Data;
+	}
 }
 // 重定向c库函数printf到USART1
 int fputc(int ch, FILE *f)

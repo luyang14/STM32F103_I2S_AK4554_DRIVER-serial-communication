@@ -133,10 +133,6 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
-          <Key>DLGUARM</Key>
-        </SetRegEntry>
-        <SetRegEntry>
-          <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
           <Name>-L70 -Z18 -C0 -M0 -T1</Name>
         </SetRegEntry>
@@ -165,116 +161,64 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>140</LineNumber>
+          <LineNumber>44</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134223332</Address>
+          <Address>134226100</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\IOTTS\Desktop\鏂板缓鏂囦欢澶?stm32f103_i2s\Project\User\i2s\bsp_i2s.c</Filename>
+          <Filename>D:\work\electric design\Company\camera_related\program\STM32F103_I2S_AK4554_DRIVER-serial-communication\stm32f103_i2s\Project\User\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Template\../../User/i2s/bsp_i2s.c\140</Expression>
+          <Expression>\\Template\../../User/main.c\44</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>137</LineNumber>
+          <LineNumber>50</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134223330</Address>
+          <Address>134226122</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\IOTTS\Desktop\鏂板缓鏂囦欢澶?stm32f103_i2s\Project\User\i2s\bsp_i2s.c</Filename>
+          <Filename>D:\work\electric design\Company\camera_related\program\STM32F103_I2S_AK4554_DRIVER-serial-communication\stm32f103_i2s\Project\User\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Template\../../User/i2s/bsp_i2s.c\137</Expression>
+          <Expression>\\Template\../../User/main.c\50</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>128</LineNumber>
+          <LineNumber>42</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134223298</Address>
+          <Address>134226092</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\IOTTS\Desktop\鏂板缓鏂囦欢澶?stm32f103_i2s\Project\User\i2s\bsp_i2s.c</Filename>
+          <Filename>D:\work\electric design\Company\camera_related\program\STM32F103_I2S_AK4554_DRIVER-serial-communication\stm32f103_i2s\Project\User\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Template\../../User/i2s/bsp_i2s.c\128</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>131</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134223308</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\IOTTS\Desktop\鏂板缓鏂囦欢澶?stm32f103_i2s\Project\User\i2s\bsp_i2s.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\Template\../../User/i2s/bsp_i2s.c\131</Expression>
-        </Bp>
-        <Bp>
-          <Number>4</Number>
-          <Type>0</Type>
-          <LineNumber>135</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134223320</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\IOTTS\Desktop\鏂板缓鏂囦欢澶?stm32f103_i2s\Project\User\i2s\bsp_i2s.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\Template\../../User/i2s/bsp_i2s.c\135</Expression>
-        </Bp>
-        <Bp>
-          <Number>5</Number>
-          <Type>0</Type>
-          <LineNumber>126</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134223286</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\IOTTS\Desktop\鏂板缓鏂囦欢澶?stm32f103_i2s\Project\User\i2s\bsp_i2s.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\Template\../../User/i2s/bsp_i2s.c\126</Expression>
-        </Bp>
-        <Bp>
-          <Number>6</Number>
-          <Type>0</Type>
-          <LineNumber>143</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134223346</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\IOTTS\Desktop\鏂板缓鏂囦欢澶?stm32f103_i2s\Project\User\i2s\bsp_i2s.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\Template\../../User/i2s/bsp_i2s.c\143</Expression>
+          <Expression>\\Template\../../User/main.c\42</Expression>
         </Bp>
       </Breakpoint>
+      <WatchWindow1>
+        <Ww>
+          <count>0</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TIMx</ItemText>
+        </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Flag_USART1_TX_Finish</ItemText>
+        </Ww>
+      </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
@@ -340,7 +284,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>2</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\Libraries\CMSIS\core_cm3.c</PathWithFileName>
@@ -352,7 +296,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>3</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\Libraries\CMSIS\system_stm32f10x.c</PathWithFileName>
@@ -721,6 +665,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\i2s\bsp_i2s.c</PathWithFileName>
       <FilenameWithoutPath>bsp_i2s.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>33</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\User\tim2\bsp_Tim2.c</PathWithFileName>
+      <FilenameWithoutPath>bsp_Tim2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

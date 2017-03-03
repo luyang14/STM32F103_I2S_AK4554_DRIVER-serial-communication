@@ -145,7 +145,21 @@ void SysTick_Handler(void)
 /*  available peripheral interrupt handler's name please refer to the startup */
 /*  file (startup_stm32f10x_xx.s).                                            */
 /******************************************************************************/
-
+/**
+  * @brief  This function handles TIM2 Handler.
+  * @param  None
+  * @retval None
+  */
+void TIM2_IRQHandler(void)
+{
+	if (TIM_GetITStatus(TIM2,TIM_IT_Update)!=RESET)
+	{   
+		TIM_ClearFlag(TIM2, TIM_FLAG_Update);
+		TIM_ClearITPendingBit(TIM2,TIM_FLAG_Update);
+		GPIO_WriteBit(GPIOD,GPIO_Pin_0,
+		(BitAction)(1-GPIO_ReadOutputDataBit(GPIOD,GPIO_Pin_0)));
+	}
+}
 
 
 

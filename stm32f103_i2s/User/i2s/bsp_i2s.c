@@ -10,9 +10,7 @@
 /* Includes ------------------------------------------------------------------*/
 
 #include "bsp_i2s.h"
-
-u8 I2S_RX=0;
-u8 I2S_TX=0;
+#include "bsp_usart1.h"
 
  /*
 **************************************************************************
@@ -39,13 +37,14 @@ static void I2S_NVIC_Config(void)
   /* SPI2 IRQ Channel configuration */
   NVIC_InitStructure.NVIC_IRQChannel = SPI2_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
 
   /* SPI3 IRQ channel configuration */
   NVIC_InitStructure.NVIC_IRQChannel = SPI3_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
   NVIC_Init(&NVIC_InitStructure);
 }
  /*
@@ -104,7 +103,7 @@ void STM32F10X_I2S_Init(void)
   I2S_Init(SPI2, &I2S_InitStructure);
 	
   /* I2S3 configuration */
-  I2S_InitStructure.I2S_Mode = I2S_Mode_SlaveTx;
+  I2S_InitStructure.I2S_Mode = I2S_Mode_MasterTx;
   I2S_Init(SPI3, &I2S_InitStructure);
   
 	/* Enable the I2S2 RxNE interrupt */
@@ -117,29 +116,73 @@ void STM32F10X_I2S_Init(void)
   I2S_Cmd(SPI2, ENABLE);
 	
   /* Enable the I2S3 */
-  I2S_Cmd(SPI3, ENABLE);
+//  I2S_Cmd(SPI3, ENABLE);
 
 	I2S_NVIC_Config();
 }
 
-static u16 sample_mic=0;
+u16 sample_audio = 0;
+u16 sample_mic = 0;
 
 void SPI2_IRQHandler()
 {
   if (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == SET)
 		{
-			sample_mic = SPI_I2S_ReceiveData(SPI2);
-			I2S_RX=1;
+			sample_mic=0;
+		  sample_mic = SPI_I2S_ReceiveData(SPI2);
+//			sample_mic = 0xef00;
+		  USART1_Tx_Buffer[3]=sample_mic>>8;
+		  USART1_Tx_Buffer[2]=sample_mic;  
+//			sample_mic = SPI_I2S_ReceiveData(SPI2);
+      SPI_I2S_ITConfig(SPI2, SPI_I2S_IT_RXNE, DISABLE);
+      Flag_USART1_TX_Finish=1;
 		}
 }
-
+/*******************************************************************************
+* Function Name  : SPI2_IRQHandler
+* Description    : This function handles SPI2 global interrupt request.
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+//void SPI2_IRQHandler(void)
+//{
+//  /* Check the interrupt source */
+//  if (SPI_I2S_GetITStatus(SPI2, SPI_I2S_IT_RXNE) == SET)
+//  {
+//    /* Store the I2S2 received data in the relative data table */
+//    I2S3_Buffer_Rx[RxIdx++] = SPI_I2S_ReceiveData(SPI2);
+//  }
+//}
 void SPI3_IRQHandler()
 {
  	if (SPI_I2S_GetFlagStatus(SPI3, SPI_I2S_FLAG_TXE) == SET)
 		{
-			SPI_I2S_SendData(SPI3,sample_mic);
-			I2S_TX=1;
+			SPI_I2S_SendData(SPI3,sample_audio);
+		  SPI_I2S_ITConfig(SPI3, SPI_I2S_IT_TXE, DISABLE);
 		}	
 }
+/*******************************************************************************
+* Function Name  : SPI3_IRQHandler
+* Description    : This function handles SPI3 global interrupt request.
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+//void SPI3_IRQHandler(void)
+//{
+//  /* Check the interrupt source */
+//  if (SPI_I2S_GetITStatus(SPI3, SPI_I2S_IT_TXE) == SET)
+//  {
+//    /* Send a data from I2S3 */
+//    SPI_I2S_SendData(SPI3, I2S2_Buffer_Tx[TxIdx++]);
+//  }
 
+//  /* Check the end of buffer transfer */
+//  if (RxIdx == 32)
+//  {
+//    /* Disable the I2S3 TXE interrupt to end the communication */
+//    SPI_I2S_ITConfig(SPI3, SPI_I2S_IT_TXE, DISABLE);
+//  }
+//}
 /******************* (C) COPYRIGHT 2017 STMicroelectronics ***************/

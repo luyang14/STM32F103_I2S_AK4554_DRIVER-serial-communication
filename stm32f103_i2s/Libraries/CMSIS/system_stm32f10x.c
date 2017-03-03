@@ -102,7 +102,7 @@
           the System clock.
      If you are using different crystal you have to adapt those functions accordingly.
     */
-    
+ 
 #if defined (STM32F10X_LD_VL) || (defined STM32F10X_MD_VL) || (defined STM32F10X_HD_VL)
 /* #define SYSCLK_FREQ_HSE    HSE_VALUE */
  #define SYSCLK_FREQ_24MHz  24000000

@@ -371,7 +371,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD, USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Libraries\CMSIS;..\..\User;..\..\Libraries\FWlib\inc;..\..\User\usart;..\..\User\delay;..\..\User\led;..\..\User\i2s</IncludePath>
+              <IncludePath>..\..\Libraries\CMSIS;..\..\User;..\..\Libraries\FWlib\inc;..\..\User\usart;..\..\User\delay;..\..\User\led;..\..\User\i2s;..\..\User\tim2</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -588,6 +588,11 @@
               <FileName>bsp_i2s.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\i2s\bsp_i2s.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Tim2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\tim2\bsp_Tim2.c</FilePath>
             </File>
           </Files>
         </Group>
